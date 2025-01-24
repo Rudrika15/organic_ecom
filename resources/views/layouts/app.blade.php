@@ -14,23 +14,30 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <!-- Toastr CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
     <script src="{{ asset('js/script.js') }}"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    
 
-    <title>SB Admin 2 - Dashboard</title>
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <title>Organic e-comm</title>
+
     <!-- Custom fonts for this template-->
     <link href="{{ asset('asset/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-    
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
     <!-- Custom styles for this template-->
     <link href="{{ asset('asset/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    {{-- comman card header css --}}
+    <link href="{{ asset('asset/css/card.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -40,26 +47,57 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient sidebar sidebar-dark accordion" id="accordionSidebar"
+            style="background-color:  #161e22">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html"
+                style="background-color: #3E8EF7  !important;">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fa fa-shopping-cart"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3 ">E-comm</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('category.index')}}">
+                    <i class="fa fa-bookmark"></i>
+                    <span>Categories</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('product.index')}}">
+                    <i class="fa fa-bookmark"></i>
+                    <span>Products</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('module.index')}}">
+                    <i class="fa fa-bookmark"></i>
+                    <span>Modules</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('image.index')}}">
+                    <i class="fa fa-bookmark"></i>
+                    <span>Images</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('product.price.index')}}">
+                    <i class="fa fa-university"></i>
+                    <span>Product-Price</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -113,26 +151,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -705,7 +723,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2025</span>
                     </div>
                 </div>
             </footer>
@@ -745,6 +763,15 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('asset/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    {{-- <script>
+        var type = '{{ session()->get("success") ? "success" : (session()->get("error") ? "error" : ($errors->any() ? "error" : "")) }}';
+        var message = '{{ session()->get("success") ? session()->get("success")["message"] : (session()->get("error") ? session()->get("error")["message"] : implode("\\n", $errors->all())) }}';
+        if (type) {
+            toastr[type](message);
+        }
+    </script> --}}
 
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('asset/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
