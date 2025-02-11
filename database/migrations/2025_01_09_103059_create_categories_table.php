@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name');
-            $table->integer('parent_id');
-            $table->integer('user_id');
+            $table->string('categoryName');
+            $table->string('categoryNameGuj');
+            $table->string('categoryNameHin');
+            $table->string('categoryDescription');
+            $table->string('categoryDescriptionGuj');
+            $table->string('categoryDescriptionHin');
+            $table->string('cat_icon');
+            $table->integer('parent_category_id');
             $table->timestamps();
         });
     }

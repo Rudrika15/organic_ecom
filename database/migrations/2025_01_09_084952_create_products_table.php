@@ -13,10 +13,18 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
-            $table->string('product_name');
-            $table->string('Thumbnail');
-            $table->integer('user_id');
+            $table->string('productName');
+            $table->string('productNameGuj');
+            $table->string('productNameHin');
+            $table->string('productDescription');
+            $table->string('productDescriptionGuj');
+            $table->string('productDescriptionHin');
+            $table->string('productPrice');
+            $table->integer('categoryId');
+            $table->integer('userId');
+            $table->string('stock');
+            $table->string('image');
+            $table->string('season');
             $table->timestamps();
         });
     }
